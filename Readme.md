@@ -1,6 +1,6 @@
 # Учебный проект «Барбершоп»
 
-* Студент: [Lemara Seitibraimova](https://up.htmlacademy.ru/htmlcss/17/user/351399).
+* Студент: [Alex Schmidt]
 
 ---
 
