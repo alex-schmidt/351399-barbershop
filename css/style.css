@@ -1,0 +1,187 @@
+/* Common */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /*background: #070707;*/
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container {
+  width: 940px;
+  padding: 0 10px;
+  margin: auto;
+}
+
+/* Header */
+
+.main-header {
+  margin-bottom: 60px;
+}
+
+.main-nav {
+  float: left;
+  width: 780px;
+
+  /* TODO: for Grid - Delete */
+  min-height: 70px;
+}
+
+.main-nav li { display: inline-block; }
+
+.user-block {
+  float: right;
+  width: 140px;
+
+  /* TODO: for Grid - Delete */
+  min-height: 70px;
+}
+
+/* EO Header */
+
+/* Main */
+
+.index-logo {
+  display: table;
+  margin: 0 auto 25px;
+}
+
+.features {
+  margin-bottom: 80px;
+}
+
+.features-item {
+  float: left;
+  width: 300px;
+  margin-right: 20px;
+
+  /* TODO: for Grid - Delete */
+  min-height: 165px;
+}
+.features-item:last-child { margin-right: 0; }
+
+.index-content {
+  padding: 50px 80px;
+  margin-bottom: 35px;
+}
+
+.index-content-left {
+  float: left;
+  width: 380px;
+}
+
+.index-content-right {
+  float: right;
+  width: 300px;
+}
+
+/* TODO: for Grid - Delete */
+.index-content > div { min-height: 320px; }
+.index-content + .index-content > div { min-height: 295px; }
+
+.index-content-title {
+  margin-top: 0;
+}
+
+/* EO Main */
+
+/* Footer */
+
+.main-footer {
+  margin-top: 65px;
+  padding: 60px 0 40px;
+}
+
+.footer-contacts {
+  float: left;
+  width: 320px;
+  margin-right: 60px;
+
+  /* TODO: for Grid - Delete */
+  min-height: 95px;
+}
+
+.footer-social {
+  float: left;
+  width: 180px;
+
+  /* TODO: for Grid - Delete */
+  min-height: 95px;
+}
+
+.footer-copyright {
+  float: right;
+  width: 160px;
+
+  /* TODO: for Grid - Delete */
+  min-height: 95px;
+}
+
+/* EO Footer */
+
+
+
+
+
+
+
+
+
+
+/* Test styles for grid */
+body {
+  margin-top: 15px;
+  min-width: 1124px;
+  min-height: 1716px;
+  /*background: #070707 url(../img/barbershop-index.jpg) 50% 15px no-repeat;*/
+}
+
+
+body > *,
+body > * > *,
+body > * > * > * {
+  position: relative;
+}
+
+body > * {
+  background: rgba(0, 128, 0, 0.2);
+  box-shadow: 0 0 0 2px green;
+}
+
+body > * > * {
+  background: rgba(128, 0, 0, 0.2);
+  box-shadow: 0 0 0 2px red;
+}
+
+body > * > * > * {
+  background: rgba(128, 128, 0, 0.2);
+  box-shadow: inset 0 0 0 2px yellow;
+}
+
+body > *:before,
+body > * > *:before,
+body > * > * > *:before {
+  /*content: attr(class);*/
+  position: absolute;
+  top: 0; left: 0;
+  padding: 3px 5px;
+  color: #fff;
+  font: bold 12px/12px Lucida Console, Lucida Sans Typewriter, monaco, monospace;
+}
+
+body > * > *:before {
+  left: -2px;
+  transform: translateY(-100%);
+}
+
+body > *:before { background: green; }
+body > * > *:before { background: red; }
+body > * > * > *:before { color: #000; background: yellow; }
