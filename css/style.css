@@ -6,6 +6,7 @@ html, body {
 }
 
 body {
+  font: 14px/24px Arial,sans-serif;
   /*background: #070707;*/
 }
 
@@ -35,6 +36,14 @@ body {
   min-height: 70px;
 }
 
+.main-nav .logo { float: left; }
+
+.main-nav ul {
+  float: left;
+  margin: 0; padding: 0;
+  list-style: none;
+}
+
 .main-nav li { display: inline-block; }
 
 .user-block {
@@ -48,6 +57,8 @@ body {
 /* EO Header */
 
 /* Main */
+
+/* Index page */
 
 .index-logo {
   display: table;
@@ -91,14 +102,133 @@ body {
   margin-top: 0;
 }
 
+/* All content pages */
+
+.main-title {
+  margin: -6px 0 15px;
+  font: 30px/42px Arial,sans-serif;
+  text-transform: uppercase;
+}
+
+.breadcrumbs {
+  margin: 0 0 50px;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbs li { display: inline-block; }
+
+/* Catalog page */
+
+.catalog-sidebar {
+  float: left;
+  width: 220px;
+}
+
+.catalog-filters fieldset {
+  margin: 50px 0 0;
+  padding: 0;
+
+  /* TODO: for Grid - Delete */
+  min-height: 255px;
+}
+.catalog-filters fieldset:first-child { margin-top: 0; }
+
+.catalog-content {
+  float: right;
+  width: 700px;
+}
+
+.catalog-list {
+  margin: 0 0 25px;
+}
+
+.catalog-item {
+  float: left;
+  width: 220px;
+  margin: 0 20px 20px 0;
+
+  /* TODO: for Grid - Delete */
+  min-height: 286px;
+}
+.catalog-item:nth-child(3n) { margin-right: 0; }
+
+.catalog-item .title {
+  font: 14px/18px Arial,sans-serif;
+}
+
+.catalog-paginator {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.catalog-paginator li {
+  display: inline-block;
+  width: 43px;
+  height: 43px;
+}
+
+/* Product page */
+
+.product-photo {
+  float: left;
+  width: 460px;
+}
+
+.product-photo .full {
+  display: block;
+}
+
+.product-photo .thumbs-list {
+  margin: 20px 0 0;
+  padding: 0;
+  font-size: 0;
+  list-style: none;
+}
+
+.product-photo .thumbs-item {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.product-photo .thumbs-item:last-child { margin-right: 0; }
+.product-photo .thumbs-item img {display: block;}
+
+.product-info {
+  float: right;
+  width: 390px;
+}
+
+.product-meta { margin: 20px 0 30px; }
+.product-meta .in-stock { float: left; }
+.product-meta .vendor-code { float: right; }
+
+.product-actions {
+  margin: 35px 0;
+
+  /* TODO: for Grid - Delete */
+  min-height: 45px;
+}
+
+.product-specs { padding: 1px 0; }
+
+.product-specs .title {
+  margin: 25px 0;
+  font-size: 24px;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+
 /* EO Main */
 
 /* Footer */
 
 .main-footer {
-  margin-top: 65px;
+  margin-top: 50px;
   padding: 60px 0 40px;
 }
+.index-page .main-footer {margin-top: 65px;}
 
 .footer-contacts {
   float: left;
@@ -141,7 +271,7 @@ body {
   margin-top: 15px;
   min-width: 1124px;
   min-height: 1716px;
-  /*background: #070707 url(../img/barbershop-index.jpg) 50% 15px no-repeat;*/
+  background: #070707 url(../img/barbershop-item.jpg) 50% 15px no-repeat;
 }
 
 
@@ -151,17 +281,20 @@ body > * > * > * {
   position: relative;
 }
 
-body > * {
+body > *,
+article {
   background: rgba(0, 128, 0, 0.2);
   box-shadow: 0 0 0 2px green;
 }
 
-body > * > * {
+body > * > *,
+article > * {
   background: rgba(128, 0, 0, 0.2);
   box-shadow: 0 0 0 2px red;
 }
 
-body > * > * > * {
+body > * > * > *,
+article > * > * {
   background: rgba(128, 128, 0, 0.2);
   box-shadow: inset 0 0 0 2px yellow;
 }
@@ -169,7 +302,7 @@ body > * > * > * {
 body > *:before,
 body > * > *:before,
 body > * > * > *:before {
-  /*content: attr(class);*/
+  content: attr(class);
   position: absolute;
   top: 0; left: 0;
   padding: 3px 5px;
