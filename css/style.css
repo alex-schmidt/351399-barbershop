@@ -1,13 +1,19 @@
 /* Common */
 
+/*
+* TODO: Texture BGs
+*/
+
 html, body {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font: 14px/24px Arial,sans-serif;
-  /*background: #070707;*/
+  color: #fff;
+  font: bold 14px/24px "PT Sans Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  background: #070707 url(../img/bg.jpg) no-repeat;
 }
 
 .clearfix:after {
@@ -26,14 +32,13 @@ body {
 
 .main-header {
   margin-bottom: 60px;
+  color: #fff;
+  background: #000;
 }
 
 .main-nav {
   float: left;
   width: 780px;
-
-  /* TODO: for Grid - Delete */
-  min-height: 70px;
 }
 
 .main-nav .logo { float: left; }
@@ -44,15 +49,55 @@ body {
   list-style: none;
 }
 
-.main-nav li { display: inline-block; }
+.main-nav li {
+  display: inline-block;
+  font-size: 0;
+  vertical-align: top;
+}
+
+.main-nav a,
+.user-block a {
+  display: block;
+  padding: 25px 20px;
+
+  color: inherit;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.main-nav a:hover,
+.main-nav a:active,
+.user-block a:hover,
+.user-block a:active {
+  background: #242424;
+}
 
 .user-block {
   float: right;
-  width: 140px;
-
-  /* TODO: for Grid - Delete */
-  min-height: 70px;
+  max-width: 140px;
+  font-size: 0;
 }
+
+.user-block a {
+  position: relative;
+  display: inline-block;
+}
+
+a.login { padding-left: 53px; }
+
+a.login::before {
+  content: "";
+  position: absolute;
+  top: 28px; left: 22px;
+
+  width: 18px;
+  height: 16px;
+
+  background: url(../img/icon-login.png) 0 0 no-repeat;
+  opacity: 0.3;
+}
+a.login:hover::before { opacity: 1; }
 
 /* EO Header */
 
@@ -64,6 +109,7 @@ body {
   display: table;
   margin: 0 auto 25px;
 }
+.index-logo img { display: block; }
 
 .features {
   margin-bottom: 80px;
@@ -71,13 +117,42 @@ body {
 
 .features-item {
   float: left;
-  width: 300px;
+  width: 260px;
+  padding: 0 20px;
   margin-right: 20px;
+
+  text-align: center;
 
   /* TODO: for Grid - Delete */
   min-height: 165px;
 }
 .features-item:last-child { margin-right: 0; }
+
+.features-item p:last-child { margin-bottom: 0; }
+
+.features-name {
+    position: relative;
+
+    display: block;
+    padding-bottom: 35px;
+    margin-bottom: 35px;
+
+    font-size: 30px;
+    line-height: 42px;
+}
+
+.features-name::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+
+  width: 20px;
+  height: 20px;
+
+  background: #fff;
+  transform: translate(-10px, -5px) rotate(45deg);
+}
 
 .index-content {
   padding: 50px 80px;
@@ -292,7 +367,7 @@ h2 {
 
 
 
-/* Test styles for grid */
+/* Test styles for grid
 body {
   margin-top: 15px;
   min-width: 1124px;
