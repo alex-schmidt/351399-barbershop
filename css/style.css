@@ -3,18 +3,26 @@
 /*
 * TODO: Texture BGs
 * TODO: Sprites
+*
+* in Nerds
+* TODO: .breadcrumbs .current > last-child
+* TODO: .columns not float
+* TODO: .lead with flex + without wrapper
 */
 
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
 body {
+  padding: 0;
+  margin: 0;
+
   color: #fff;
   font: bold 14px/24px "PT Sans Narrow", Arial, sans-serif;
   text-transform: uppercase;
   background: #070707 url(../img/bg.jpg) no-repeat;
+}
+
+.inner-page {
+  color: #000;
+  background: #f8f5f2 url(../img/content-bg.png) repeat;
 }
 
 a { color: inherit; }
@@ -29,6 +37,22 @@ a { color: inherit; }
   width: 940px;
   padding: 0 10px;
   margin: auto;
+}
+
+/* Form elements */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  padding: 8px 15px;
+
+  font: inherit;
+  text-transform: uppercase;
+
+  color: #000;
+  background: #f9f6f3;
+  border: 2px solid #000101;
 }
 
 /* Buttons */
@@ -126,12 +150,12 @@ a { color: inherit; }
   background: #000;
 }
 
+.inner-header { margin-bottom: 50px; }
+
 .main-nav {
   float: left;
   width: 780px;
 }
-
-.main-nav .logo { float: left; }
 
 .main-nav ul {
   float: left;
@@ -161,6 +185,12 @@ a { color: inherit; }
 .user-block a:hover,
 .user-block a:active {
   background: #242424;
+}
+
+.main-nav .logo {
+  float: left;
+  padding-top: 21px;
+  padding-bottom: 21px;
 }
 
 .user-block {
@@ -250,8 +280,8 @@ a.login:hover::before { opacity: 1; }
   margin-bottom: 35px;
 
   color: #000;
-  background: url(../img/index-content-shadow.png) 50% 50% no-repeat,
-              #f8f5f2 url(../img/index-content-bg);
+  background: url(../img/content-separator.png) 50% 50% no-repeat,
+              #f8f5f2 url(../img/content-bg.png) repeat;
 }
 
 .index-content-left {
@@ -323,24 +353,6 @@ a.login:hover::before { opacity: 1; }
 
 /* Appointment form */
 
-.appointment-form {
-
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"] {
-  padding: 8px 15px;
-
-  font: inherit;
-  text-transform: uppercase;
-
-  color: #000;
-  background: #f9f6f3;
-  border: 2px solid #000101;
-}
-
 .appointment-form input {
   float: left;
   width: 106px;
@@ -350,49 +362,177 @@ input[type="tel"] {
 .appointment-form input:nth-child(2n) { margin-right: 0; }
 .appointment-form .btn { width: 100%; }
 
+/*** All inner pages ****/
 
-/* All content pages */
-h1,
-.main-title {
-  margin: -6px 0 15px;
+/* Inner pages header */
+
+.inner-heading { margin-bottom: 45px; }
+
+.inner-title {
+  margin: 0 0 15px;
   font-size: 30px;
   line-height: 42px;
   text-transform: uppercase;
 }
 
-h2 {
-  font-size: 24px;
-  line-height: 30px;
-  text-transform: uppercase;
+.breadcrumbs {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-.breadcrumbs {
-  margin: 0 0 50px;
+.breadcrumbs li {
+  position: relative;
+  display: inline;
+  padding-right: 40px;
+}
+.breadcrumbs li::after {
+  content: "";
+  position: absolute;
+  top: 50%; right: 0;
+
+  width: 7px; height: 7px;
+  margin: -3.5px 15px 0;
+
+  vertical-align: middle;
+
+  background: #000;
+  transform: rotate(45deg);
+}
+
+.breadcrumbs a { text-decoration: none; }
+.breadcrumbs a:hover { text-decoration: underline; }
+
+.breadcrumbs .current {
+  padding-right: 0;
+  color: #aba9a7;
+}
+.breadcrumbs .current::after { display: none; }
+
+
+/* Inner pages content */
+
+.inner-content h2 {
+  margin: 60px 0 30px;
+
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.inner-content p,
+.inner-content ul {
+  margin: 24px 0;
+}
+
+.inner-content ul {
   padding: 0;
   list-style: none;
 }
 
-.breadcrumbs li { display: inline-block; }
+.inner-content li {
+  position: relative;
 
-.main-content .heading,
-.main-content .lead {
-  margin: 0 0 55px;
+  padding-left: 20px;
+  margin-bottom: 13px;
+}
+.inner-content li:last-child { margin-bottom: 0; }
+
+.inner-content li::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 0;
+
+  width: 7px; height: 7px;
+  margin-top: -3.5px;
+
+  background: #000;
+  transform: rotate(45deg);
+}
+
+.inner-content table {
+  margin: 35px 0;
+  border-collapse: collapse;
+}
+
+.inner-content th,
+.inner-content td {
+  padding: 8px 17px;
+  border: 2px solid #000;
+}
+
+.inner-content .full-width { width: 100%; }
+.inner-content .equal-cells { table-layout: fixed; }
+.inner-content .short-text { padding-right: 80px; }
+
+.inner-content .price-table {
+  table-layout: fixed;
+  width: 100%;
+
+  text-align: center;
+}
+
+.inner-content .price-table td:first-child { text-align: left; }
+
+
+/* Lead text/heading */
+
+.inner-content .lead {
+  overflow: hidden;
+  margin: 0 0 60px;
+
+  font-weight: bold;
   font-size: 48px;
   line-height: 48px;
   text-align: center;
-  text-transform: uppercase;
 }
 
-.main-content .columns {
-  column-count: 2;
-  margin-bottom: 50px;
+.inner-content .lead > * {
+  position: relative;
+
+  display: inline-block;
+  padding: 0 25px;
+  margin: 0;
+
+  font: inherit;
 }
+
+.inner-content .lead > *::before,
+.inner-content .lead > *::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+
+  width: 9999px;
+  height: 2px;
+  margin-top: -1px;
+
+  background: #000;
+}
+.inner-content .lead > *::before { right: 100%; }
+.inner-content .lead > *::after { left: 100%; }
+
+/* Columns */
+
+.inner-content .columns:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.inner-content .column-left,
+.inner-content .column-right {
+  float: left;
+  width: 460px;
+}
+.inner-content .column-right { float: right; }
+
+.inner-content .column-left > *:first-child,
+.inner-content .column-right > *:first-child { margin-top: 0; }
+.inner-content .column-left > *:last-child,
+.inner-content .column-right > *:last-child { margin-bottom: 0; }
 
 /* TODO: for Grid - Delete */
-.main-content .columns { min-height: 230px; }
-.main-content .columns ~ .columns { min-height: 0; }
 
-.main-content .columns > *:first-child {margin-top: 0;}
 
 /* Catalog page */
 
@@ -508,6 +648,8 @@ h2 {
   background: #222;
 }
 
+.inner-footer { margin-top: 70px; }
+
 .main-footer p {
   margin: 0 0 15px;
 }
@@ -542,8 +684,13 @@ h2 {
 
 
 
+.chromeperfectpixel-overlay {
+  margin-left: 50% !important;
+  transform: translateX(-50%) !important;
+}
 
 /* Test styles for grid
+
 body {
   margin-top: 15px;
   min-width: 1124px;
@@ -564,7 +711,7 @@ body {
   background-image: url(../img/barbershop-item.jpg);
 }
 
-.content-page {
+.inner-page {
   background-image: url(../img/barbershop-price.jpg);
 }
 
