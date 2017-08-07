@@ -243,8 +243,6 @@ input[type="radio"]:checked + label:after {
   background: #000;
 }
 
-.inner-header { margin-bottom: 50px; }
-
 .main-nav {
   float: left;
   width: 780px;
@@ -761,16 +759,35 @@ a.login:hover::before { opacity: 1; }
 /* Catalog paginator */
 
 .catalog-paginator {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  margin-left: -5px;
 }
 
-.catalog-paginator li {
+.catalog-paginator a,
+.catalog-paginator span {
   display: inline-block;
-  width: 43px;
-  height: 43px;
+  min-width: 22px; height: 18px;
+  padding: 12px 10px;
+  margin-left: 5px;
+
+  line-height: 18px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+
+  color: #fff;
+  background: #000;
 }
+.catalog-paginator a[href]:hover { background: #663d15; }
+
+.catalog-paginator .current {
+  color: #000;
+  background: #fff;
+}
+.catalog-paginator .disabled { opacity: 0.5; }
+
+
+
+
 
 /* Product page */
 
@@ -834,8 +851,6 @@ a.login:hover::before { opacity: 1; }
   color: #fff;
   background: #222;
 }
-
-.inner-footer { margin-top: 70px; }
 
 .main-footer p {
   margin: 0 0 15px;
