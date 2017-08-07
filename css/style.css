@@ -1,8 +1,10 @@
 /* Common */
 
 /*
+* TODO: links without .html
 * TODO: Texture BGs
 * TODO: Sprites
+* TODO: Logo in header sizes
 *
 * in Nerds
 */
@@ -21,12 +23,16 @@ body {
 
 .inner-page {
   color: #000;
-  background: #f8f5f2 url(../img/content-bg.png) repeat;
+  background: #f8f5f2;
+  /*background: #f8f5f2 url(../img/content-bg.png) repeat;*/
 }
 
 a { color: inherit; }
 
-img { max-width: 100%; }
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
 
 .clearfix:after {
   content: "";
@@ -143,16 +149,19 @@ input[type="radio"]:checked + label:after {
 
 .btn {
   display: inline-block;
+  box-sizing: border-box;
   padding: 10px 33px;
   margin-right: 17px;
 
   font: inherit;
   text-decoration: none;
   text-transform: uppercase;
+  vertical-align: top;
 
   color: #fff;
   background: #000;
   border: none;
+
   cursor: pointer;
 }
 .btn:last-child { margin-right: 0; }
@@ -383,8 +392,9 @@ a.login:hover::before { opacity: 1; }
   margin-bottom: 35px;
 
   color: #000;
-  background: url(../img/content-separator.png) 50% 50% no-repeat,
-              #f8f5f2 url(../img/content-bg.png) repeat;
+  background: #f8f5f2 url(../img/content-separator.png) 50% 50% no-repeat;
+  /*background: url(../img/content-separator.png) 50% 50% no-repeat,
+                #f8f5f2 url(../img/content-bg.png) repeat;*/
 }
 
 .index-content-left {
@@ -689,8 +699,13 @@ a.login:hover::before { opacity: 1; }
 
 .catalog-item {
   float: left;
-  width: 220px;
+  width: 190px;
+  padding: 15px;
   margin: 0 0 20px 20px;
+
+  color: #000;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
   /* TODO: for Grid - Delete */
   min-height: 286px;
@@ -700,20 +715,48 @@ a.login:hover::before { opacity: 1; }
   overflow: hidden;
   width: 220px;
   height: 165px;
+  margin: -15px;
   margin-bottom: 15px;
 }
 
 .catalog-item .title {
+  min-height: 36px;
   margin-bottom: 15px;
 
   font-size: 14px;
   line-height: 18px;
 }
 
+.catalog-item .title > a { text-decoration: none; }
+.catalog-item .title > a:hover { text-decoration: underline; }
+
 .catalog-item .category-name {
   display: block;
   text-transform: none;
 }
+
+.catalog-item .buy {
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+}
+
+.catalog-item .price,
+.catalog-item .btn-buy {
+  display: inline-block;
+  padding: 13px 10px;
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 18px;
+  vertical-align: top;
+}
+.catalog-item .price {
+  min-height: 18px;
+  width: 90px;
+  background: #ccc;
+}
+.catalog-item .btn-buy { width: 80px; }
 
 /* Catalog paginator */
 
@@ -822,6 +865,19 @@ a.login:hover::before { opacity: 1; }
 
 /* Modals */
 
+@keyframes bounce {
+  0%    { margin-top: -2000px; }
+  50%   { margin-top: 50px; }
+  80%   { margin-top: -25px; }
+  100%  { margin-top: 0; }
+}
+
+@keyframes shake {
+  0%, 100%                 { margin-left: 0; }
+  10%, 30%, 50%, 70%, 90%  { margin-left: -10px; }
+  20%, 40%, 60%, 80%       { margin-left: 10px; }
+}
+
 .modal {
   position: absolute;
   z-index: 200;
@@ -833,8 +889,31 @@ a.login:hover::before { opacity: 1; }
   padding: 45px 80px;
 
   color: #000;
-  background: #f8f5f2 url(../img/content-bg.png) repeat;
+  background: #f8f5f2;
+  /*background: #f8f5f2 url(../img/content-bg.png) repeat;*/
   box-shadow: 0 30px 50px rgba(0,0,0,0.75);
+}
+
+.modal-show {
+  display: block;
+  animation: bounce 0.5s;
+}
+
+.modal-error { animation: shake 0.5s; }
+
+.modal-overlay {
+  position: fixed;
+  z-index: 90;
+  top: 0; left: 0;
+
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+
+  transition: opacity 0.5s;
 }
 
 .modal-map {
@@ -843,26 +922,24 @@ a.login:hover::before { opacity: 1; }
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
 
-  display: none;
+  visibility: hidden;
   width: 766px;
   height: 560px;
 
   border: 7px solid #fff;
   background: #f8f5f2 url(../img/map.jpg) no-repeat;
   box-shadow: 0 30px 50px rgba(0,0,0,0.75);
+  opacity: 0;
+
+  transition: opacity 0.5s;
 }
 
-.modal-overlay {
-  position: fixed;
-  z-index: 90;
-  top: 0; left: 0;
-
-  display: none;
-  width: 100%;
-  height: 100%;
-
-  background: rgba(0,0,0,0.5);
+.modal-map-show,
+.modal-map-show + .modal-overlay {
+  visibility: visible;
+  opacity: 1;
 }
+
 
 .modal-close {
   position: absolute;
@@ -877,6 +954,8 @@ a.login:hover::before { opacity: 1; }
 
   background: none;
   border: none;
+
+  cursor: pointer;
 }
 
 .modal-close::before,

@@ -81,7 +81,7 @@
             пн — пт: с 10:00 до 22:00<br>
             сб — вс: с 10:00 до 19:00
           </p>
-          <a href="#" class="btn">Как проехать</a>
+          <a href="#" class="btn js-open-map">Как проехать</a>
           <a href="#" class="btn">Обратная связь</a>
         </div>
         <div class="index-content-right">
@@ -124,8 +124,8 @@
       <h2 class="modal-title">Личный кабинет</h2>
       <form class="login-form" action="" method="post">
         <legend>Введите пожалуйста свой логин и пароль</legend>
-        <input class="icon-user" type="text" name="login" id="login_form_login" placeholder="Логин">
-        <input class="icon-password" type="password" name="password" id="login_form_password" placeholder="Пароль">
+        <input class="icon-user" type="text" name="login" placeholder="Логин">
+        <input class="icon-password" type="password" name="password" placeholder="Пароль">
         <input type="checkbox" name="remember" id="login_form_remember">
         <label class="remember" for="login_form_remember"><i></i>Запомните меня</label>
         <a class="restore" href="#">Я забыл пароль!</a>
@@ -135,8 +135,12 @@
     <div class="modal-map">
       <button class="modal-close" type="button">Закрыть</button>
       <div id="yandex-map"></div>
+      <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.5989424177603!2d30.320889251681947!3d59.938796868958946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca5ba729%3A0xea9c53d4493c879f!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywg0KDQvtGB0YHQuNGPLCAxOTExODY!5e0!3m2!1sru!2sua!4v1501841505909" width="766" height="560" frameborder="0" style="border:0" allowfullscreen></iframe> -->
     </div>
     <div class="modal-overlay"></div>
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A50dd11066ff935c2fbdafdde8cf04d6ccc9b75e9be90e5c2ba3a8c1fc3e60940&amp;id=yandex-map&amp;width=766&amp;height=560&amp;lang=ru_UA&amp;scroll=false"></script>
+    <script src="js/script.js"></script>
+
     <script src="http://localhost:35729/livereload.js"></script>
   </body>
 </html>
