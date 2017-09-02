@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <!-- <link rel="stylesheet" href="css/style.prefix.css"> -->
+    <link rel="stylesheet" href="css/style.min.css">
     <title>Барбершоп &laquo;Бородинский&raquo;</title>
   </head>
   <body class="index-page">
-    <header class="main-header">
+    <header class="header">
       <div class="container clearfix">
         <nav class="main-nav">
           <ul>
@@ -98,7 +100,7 @@
         </div>
       </div>
     </main>
-    <footer class="main-footer">
+    <footer class="footer">
       <div class="container clearfix">
         <section class="footer-contacts">
           Барбершоп «Бородинский»<br>
@@ -124,8 +126,12 @@
       <h2 class="modal-title">Личный кабинет</h2>
       <form class="login-form" action="" method="post">
         <legend>Введите пожалуйста свой логин и пароль</legend>
-        <input class="icon-user" type="text" name="login" placeholder="Логин">
-        <input class="icon-password" type="password" name="password" placeholder="Пароль">
+        <label class="icon-user">
+          <input type="text" name="login" placeholder="Логин">
+        </label>
+        <label class="icon-password">
+          <input type="password" name="password" placeholder="Пароль">
+        </label>
         <input type="checkbox" name="remember" id="login_form_remember">
         <label class="remember" for="login_form_remember"><i></i>Запомните меня</label>
         <a class="restore" href="#">Я забыл пароль!</a>
@@ -139,7 +145,8 @@
     </div>
     <div class="modal-overlay"></div>
     <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A50dd11066ff935c2fbdafdde8cf04d6ccc9b75e9be90e5c2ba3a8c1fc3e60940&amp;id=yandex-map&amp;width=766&amp;height=560&amp;lang=ru_UA&amp;scroll=false"></script>
-    <script src="js/script.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+    <script src="js/script.min.js"></script>
 
     <script src="http://localhost:35729/livereload.js"></script>
   </body>
